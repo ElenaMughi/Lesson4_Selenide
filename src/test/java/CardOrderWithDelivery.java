@@ -4,18 +4,31 @@ import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selectors.*;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.time.Duration;
 
 
 public class CardOrderWithDelivery {
 
+    WebDriver driver;
+
+    @BeforeAll
+    static void setUpClass(){
+        WebDriverManager.chromedriver().setup();
+    }
+
     @BeforeEach
     public void setUp(){
-        holdBrowserOpen = true;
-        browserSize = "1000x900";
+//        holdBrowserOpen = true;
+//        driver = new ChromeDriver();
+//        browserSize = "1000x900";
         open("http://localhost:9999");  // вопрос: open("http://0.0.0.0:9999");
     }
 
